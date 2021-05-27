@@ -77,4 +77,4 @@ function funcKlar() {
 function funcLogo() {
     console.log("Logo!");
 }
-//# sourceMappingURL=script.js.map
+//# sourceMappingURL=a1.js.map
