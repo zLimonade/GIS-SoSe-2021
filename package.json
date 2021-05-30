@@ -1,0 +1,23 @@
+{
+  "name": "gis-sose-2021",
+  "version": "1.0.0",
+  "description": "Hello GitHub :)",
+  "main": "index.js",
+  "dependencies": {
+    "@types/node": "^15.6.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node P3.1/server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zLimonade/GIS-SoSe-2021.git"
+  },
+  "author": "zLimonade",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zLimonade/GIS-SoSe-2021/issues"
+  },
+  "homepage": "https://github.com/zLimonade/GIS-SoSe-2021#readme"
+}
