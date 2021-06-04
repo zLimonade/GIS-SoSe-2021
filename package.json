@@ -8,8 +8,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node P3.1/server/server.js"
-  },
+    "start": "node P3.2/server/server.js"
+  }, 
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zLimonade/GIS-SoSe-2021.git"
