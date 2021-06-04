@@ -8,7 +8,7 @@ namespace P32 {
     async function clickHTML(): Promise<void> {
         let formData: FormData = new FormData(document.forms[0]);
 
-        let url: string = "https://agentds.herokuapp.com/";
+        let url: string = "https://agentds.herokuapp.com";
         // let url: string = "http://localhost:8100";
         let query: URLSearchParams = new URLSearchParams(<any>formData);
         url = url + "/html?" + query.toString();
@@ -22,7 +22,7 @@ namespace P32 {
     async function clickJSON(): Promise<void> {
         let formData: FormData = new FormData(document.forms[0]);
 
-        let url: string = "https://agentds.herokuapp.com/";
+        let url: string = "https://agentds.herokuapp.com";
         // let url: string = "http://localhost:8100";
         let query: URLSearchParams = new URLSearchParams(<any>formData);
         url = url + "/json?" + query.toString();

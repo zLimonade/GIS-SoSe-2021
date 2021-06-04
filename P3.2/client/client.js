@@ -7,7 +7,7 @@ var P32;
     sendDataGetJSON.addEventListener("click", clickJSON);
     async function clickHTML() {
         let formData = new FormData(document.forms[0]);
-        let url = "https://agentds.herokuapp.com/";
+        let url = "https://agentds.herokuapp.com";
         // let url: string = "http://localhost:8100";
         let query = new URLSearchParams(formData);
         url = url + "/html?" + query.toString();
@@ -18,7 +18,7 @@ var P32;
     }
     async function clickJSON() {
         let formData = new FormData(document.forms[0]);
-        let url = "https://agentds.herokuapp.com/";
+        let url = "https://agentds.herokuapp.com";
         // let url: string = "http://localhost:8100";
         let query = new URLSearchParams(formData);
         url = url + "/json?" + query.toString();
