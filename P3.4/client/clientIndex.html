@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M.O.O. Agent Review</title>
+    <script src="clientScript.js" defer></script>
+</head>
+
+<body>
+    <h1>Mission Ocean One</h1>
+
+    <fieldset>
+        <legend>Bewerte den Service Deines Agents :)</legend>
+
+        <form>
+            <!-- Agent-Auswahl -->
+            <fieldset>
+                <legend>Dein Agent</legend>
+
+                <select name="reviewer-held" id="reviewer-held">
+                    <option value="agent-d">Agent D</option>
+                    <option value="agent-p">Agent P</option>
+                    <option value="agent-t">Agent T</option>
+                </select>
+            </fieldset>
+
+            <!-- Kontaktdaten -->
+            <fieldset>
+                <legend>Dein Name</legend>
+
+                <input type="text" name="reviewer-name" id="reviewer-name" required>
+            </fieldset>
+
+            <!-- Review Text -->
+            <fieldset>
+                <legend>Deine Review</legend>
+                <textarea name="reviewer-text" id="reviewer-text" cols="55" rows="8" required></textarea>
+            </fieldset>
+
+            <!-- Review-Abschicken-Button -->
+            <button type="reset" name="abschicken-btn" id="abschicken-btn">Abschicken</button>
+        </form>
+    </fieldset>
+
+    <!-- Zeigt Review Texte -->
+    <button id="zeigeReviews">Reviews Anzeigen</button>
+
+    <!-- Antwort nach klicken des Reviews-Anzeigen-Buttons -->
+    <div id="db-Inhalte"></div>
+</body>
+
+</html>
