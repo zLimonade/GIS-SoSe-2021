@@ -14,8 +14,8 @@ var Modulprüfung;
     let nutzer;
     let alleRezepte;
     let favoritenRezepte;
-    let dbURL = "mongodb://localhost:27017";
     // let dbURL: string = "mongodb://localhost:27017";
+    let dbURL = "mongodb+srv://dbAgentD:jYVoQLJzyUpz2888@agent-ds-mi7.7o8ku.mongodb.net/Rezepte?retryWrites=true&w=majority";
     startServer();
     connectToDB();
     function startServer() {

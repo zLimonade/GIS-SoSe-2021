@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Spectral:wght@400;500&display=swap');
+
+/* navigation */
+body {
+    margin: auto;
+}
+
+.navigationsAbschnitt {
+    background-image: url(./bilder/anmeldeHintergrund.png);
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    position: sticky;
+    top: 0;
+}
+
+.navigationsLogoKopf {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    
+}
+ 
+.navigationsLogoKopf img {
+    max-width: 6em;
+    margin: 10px;
+}
+
+.navigationsLogoKopf p {
+    font-family: Spectral, 'Times New Roman', Times, serif;
+    font-weight: 700;
+    font-size: 21px;
+    margin: 0;
+    background-color: white;
+    padding: 10px;
+    border-radius: 1em;
+    width: 13em;
+    text-align: center;
+}
+
+.navigationsListe {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: right;
+}
+
+.navigationsListe li {
+    list-style-type: none;
+}
+
+nav li a {
+    display: grid;
+    text-decoration: none;
+    font-size: 18px;
+    text-align: center;
+    background-color: #F3ED88;
+    border: 2px solid;
+    border-color: #EFD813;
+    max-width: 8em;
+    padding: 0.55em;
+    border-radius: 1em;
+    margin: 0.55em;
+    color: #686868;
+}
+
+nav li a:hover {
+    background-color: #EFD813;
+    transition: all 0.34s ease 0s;
+    color: black;
+}
+
+.current {
+    display: grid;
+    text-decoration: none;
+    font-size: 18px;
+    text-align: center;
+    background-color: #EFD813;
+    border: 2px solid;
+    border-color: #EFD813;
+    max-width: 8em;
+    padding: 0.55em;
+    border-radius: 1em;
+    margin: 0.55em;
+    color: black;
+}

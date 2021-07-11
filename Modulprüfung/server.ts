@@ -36,8 +36,8 @@ export namespace Modulprüfung {
     let alleRezepte: Mongo.Collection;
     let favoritenRezepte: Mongo.Collection;
     
-    let dbURL: string = "mongodb://localhost:27017";
     // let dbURL: string = "mongodb://localhost:27017";
+    let dbURL: string = "mongodb+srv://dbAgentD:jYVoQLJzyUpz2888@agent-ds-mi7.7o8ku.mongodb.net/Rezepte?retryWrites=true&w=majority";
     
     startServer();
     connectToDB();
