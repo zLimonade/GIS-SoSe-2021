@@ -4,12 +4,14 @@
   "description": "Hello GitHub :)",
   "main": "index.js",
   "dependencies": {
-    "@types/node": "^15.6.1"
+    "@types/mongodb": "^3.6.18",
+    "@types/node": "^15.6.1",
+    "mongodb": "^3.6.9"
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node P3.2/server/server.js"
-  }, 
+    "start": "node Modulprüfung/server.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zLimonade/GIS-SoSe-2021.git"
