@@ -52,6 +52,8 @@ var Modulprüfung;
         }
         // Nutzer in DB Rezepte und Collection nutzer einfuegen
         if (url.pathname == "/anmelden") {
+            _response.setHeader("content-type", "text/html; charset=utf-8");
+            _response.setHeader("Access-Control-Allow-Origin", "*");
             let nutzerNameVorhanden = false;
             let nutzerPasswort = false;
             let nutzername = url.query["nutzername"];
