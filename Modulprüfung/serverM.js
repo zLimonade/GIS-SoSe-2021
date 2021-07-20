@@ -54,8 +54,6 @@ var Modulprüfung;
         }
         // Nutzer in DB Rezepte und Collection nutzer einfuegen
         if (url.pathname == "/anmelden") {
-            _response.setHeader("content-type", "text/html; charset=utf-8");
-            _response.setHeader("Access-Control-Allow-Origin", "*");
             let nutzerNameVorhanden = false;
             let nutzerPasswort = false;
             let nutzername = url.query["nutzername"];
@@ -74,16 +72,22 @@ var Modulprüfung;
             }
             // Nutzername vorhande, Passwort falsch --> neuer Nutzer kann sich nicht unter eingegebenem Namen registrieren
             if (nutzerNameVorhanden == true && nutzerPasswort == false) {
+                _response.setHeader("content-type", "text/html; charset=utf-8");
+                _response.setHeader("Access-Control-Allow-Origin", "*");
                 _response.write(serverAnmeldeAntwort001.nutzerNameSchonVergeben);
             }
             // Nutzername nicht vorhanden --> neuer Nutzer kann sich unter eingegebenem Namen registrieren
             else if (nutzerNameVorhanden == false && nutzerPasswort == false) {
+                _response.setHeader("content-type", "text/html; charset=utf-8");
+                _response.setHeader("Access-Control-Allow-Origin", "*");
                 nutzer.insertOne(url.query);
                 _response.write(serverAnmeldeAntwort001.registrierenErfolgreich);
                 console.log("ServerResponsNAME: " + nutzername);
             }
             // Nutzername und Passwort stimmen überein --> Nutzer kann sich anmelden
             if (nutzerPasswort == true && nutzerNameVorhanden == true) {
+                _response.setHeader("content-type", "text/html; charset=utf-8");
+                _response.setHeader("Access-Control-Allow-Origin", "*");
                 _response.write(serverAnmeldeAntwort001.anmeldenErfolgreich);
             }
             console.log("Ganzer Query?", url.query);
