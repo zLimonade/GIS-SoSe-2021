@@ -10,7 +10,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node Modulprüfung/server.js"
+    "start": "node Modulprüfung/serverM.js"
   },
   "repository": {
     "type": "git",
