@@ -45,14 +45,14 @@ var Modulprüfung;
         // _response.setHeader("Access-Control-Allow-Origin", "*");
         if (url.pathname == "/bekommeNutzerNameUndPw") {
             let jsonString = JSON.stringify(url.query);
-            _response.setHeader("content-type", "text/html; charset=utf-8");
-            _response.setHeader("Access-Control-Allow-Origin", "*");
+            // _response.setHeader("content-type", "text/html; charset=utf-8");
+            // _response.setHeader("Access-Control-Allow-Origin", "*");
             _response.write(jsonString);
             console.log(jsonString);
         }
         // Nutzer in DB Rezepte und Collection nutzer einfuegen
         if (url.pathname == "/anmelden") {
-            _response.setHeader("content-type", "text/html; charset=utf-8");
+            // _response.setHeader("content-type", "text/html; charset=utf-8");
             _response.setHeader("Access-Control-Allow-Origin", "*");
             let nutzerNameVorhanden = false;
             let nutzerPasswort = false;
