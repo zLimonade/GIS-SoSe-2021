@@ -59,6 +59,8 @@ export namespace Modulprüfung {
         let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(dbURL, options);
         await mongoClient.connect();
         nutzer = mongoClient.db("Rezepte").collection("nutzer");
+        alleRezepte = mongoClient.db("Rezepte").collection("alleRezepte");
+        favoritenRezepte = mongoClient.db("Rezepte").collection("favoritenRezepte");
         console.log("Datenbankverbindng hergestellt ", nutzer != undefined);
     }
 
@@ -77,8 +79,8 @@ export namespace Modulprüfung {
         if (url.pathname == "/bekommeNutzerNameUndPw") {
             let jsonString: string = JSON.stringify(url.query);
 
-            // _response.setHeader("content-type", "text/html; charset=utf-8");
-            // _response.setHeader("Access-Control-Allow-Origin", "*");
+            _response.setHeader("content-type", "text/html; charset=utf-8");
+            _response.setHeader("Access-Control-Allow-Origin", "*");
             _response.write(jsonString);
 
             console.log(jsonString);
@@ -87,7 +89,7 @@ export namespace Modulprüfung {
 
         // Nutzer in DB Rezepte und Collection nutzer einfuegen
         if (url.pathname == "/anmelden") {
-            // _response.setHeader("content-type", "text/html; charset=utf-8");
+            _response.setHeader("content-type", "text/html; charset=utf-8");
             _response.setHeader("Access-Control-Allow-Origin", "*");
             let nutzerNameVorhanden: boolean = false;
             let nutzerPasswort: boolean = false;
@@ -139,6 +141,7 @@ export namespace Modulprüfung {
             let nutzername: string = <string>url.query["nutzername"];
             console.log("aktueller Nutzername: " + nutzername);
             
+            /*
             async function mitDBnutzerNameRezepteCollectionVerbinden(_url: string): Promise<void> {
                 let options: Mongo.MongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
                 let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
@@ -148,7 +151,8 @@ export namespace Modulprüfung {
             }
 
             mitDBnutzerNameRezepteCollectionVerbinden(dbURL);
-            
+            */
+
             alleRezepte.insertOne(url.query);
 
             console.log("Rezept in DB namens Rezepte eingefügt :)");
@@ -196,6 +200,7 @@ export namespace Modulprüfung {
             let nutzernameDerFavorisiert: string = <string>url.query["nutzernameDerFavorisiert"];
             let rezeptId: Mongo.ObjectId = new Mongo.ObjectId(id);
 
+            /*
             async function nutzerFavorisierenDBCollection(_url: string): Promise<void> {
                 let options: Mongo.MongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
                 let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
@@ -205,6 +210,7 @@ export namespace Modulprüfung {
             }
             
             nutzerFavorisierenDBCollection(dbURL);
+            */
 
             let cursor: Mongo.Cursor = alleRezepte.find({"_id": rezeptId});
             let result: Rezept[] = await cursor.toArray();
