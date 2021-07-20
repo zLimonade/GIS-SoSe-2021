@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Spectral:wght@300;500;700&display=swap');
+
+.neuesRezeptLink {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.34em;
+    margin-top: 3em;
+}
+
+.neuesRezeptLink h1 {
+    font-size: 25px;
+    font-weight: 400;
+    margin-bottom: 0.34em;
+    margin-top: 0.34em;
+}
+
+.neuesRezeptLink a {
+    text-decoration: none;
+    color: #F3ED88;
+}
+
+.meineRezepteSektion {
+    margin: auto;
+    margin-top: 5em;
+    max-width: 89%;
+    border: 2px solid black;
+    border-radius: 3em;
+    background-color: rgb(241, 239, 239);
+}
+
+.meineRezepteSektion h1 {
+    font-size: 34px;
+    font-weight: 400;
+    text-align: left;
+    max-width: 89%;
+    margin-left: 1em;
+}
+
+#neuesRezeptLinkButton {
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #F19921;
+    background-color: #F19921;
+    font-family: Spectral, 'Times New Roman', Times, serif;
+    font-weight: 700;
+    color: #F3ED88;
+    padding: 8px;
+    box-sizing: border-box;
+    font-size: 21px;
+    margin-left: 0.55em;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+#neuesRezeptLinkButton:hover {
+    background-color: black;
+    color: #EFD813;
+    border-color: #F19921;
+    transition: all 0.34s ease 0s;
+}
+
+#neuesRezeptLinkButton:focus {
+    outline-offset: 0;
+    outline: none !important;
+}
+
+.rezeptKopf h1 {
+    font-weight: 700;
+}

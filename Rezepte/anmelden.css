@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Spectral:wght@500;700&display=swap');
+
+/* anmelden */
+#anmeldeBody {
+    background-image: url(./bilder/anmeldeHintergrund.png);
+    width: 55%;
+    margin: 8.55em auto;
+}
+
+#anmeldeFenster {
+    background-color: white;
+    padding-left: 3em;
+    padding-right: 3em;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+    border-radius: 3.4em;
+    max-width: 21em;
+    text-align: center;
+    margin: auto;
+}
+
+#anmeldeLogoKopf img {
+    max-width: 8.89em;
+}
+
+#anmeldeLogoKopf p {
+    font-family: Spectral, 'Times New Roman', Times, serif; 
+    font-weight: 700;
+    font-size: 2.34em;
+    margin-top: 0;
+    margin-bottom: 0.21em;
+}
+
+#anmeldeFormDiv {
+    margin: auto;
+}
+
+#anmeldeFormDiv form {
+    display: block;
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#anmeldeFormDiv input {
+    border-radius: 10px;
+    width: 100%;
+    border-style: solid;
+    border-color: #EFD813;
+    background-color: #F3ED88;
+    font-family: Spectral, 'Times New Roman', Times, serif;
+    font-weight: 500;
+    color: #686868;
+    margin-bottom: 0.55em;
+    padding: 8px;
+    box-sizing: border-box;
+    font-size: 19px;
+}
+
+#anmeldeFormDiv input:hover {
+    background-color: #EFD813;
+    transition: all 0.34s ease 0s;
+    color: black;
+    transition: all 0.34s ease 0s;
+}
+
+#anmeldeFormDiv button {
+    border-radius: 10px;
+    width: 100%;
+    border-style: solid;
+    border-color: #F19921;
+    background-color: #F19921;
+    font-family: Spectral, 'Times New Roman', Times, serif;
+    font-weight: 500;
+    color: #F3ED88;
+    margin-bottom: 0.55em;
+    padding: 8px;
+    box-sizing: border-box;
+    font-size: 19px;
+}
+
+#anmeldeFormDiv button:hover {
+    background-color: black;
+    color: #EFD813;
+    border-color: #F19921;
+    transition: all 0.34s ease 0s;
+}
+
+button:focus, input:focus {
+    outline-offset: 0;
+    outline: none !important;
+}
+
+#serverAntwortAnmeldungText {
+    color: blueviolet;
+    font-weight: 500;
+    font-size: 10px;
+}

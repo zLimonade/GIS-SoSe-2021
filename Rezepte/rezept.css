@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,700;1,300&display=swap');
+
+#alleRezepteSektion div{
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Spectral, 'Times New Roman', Times, serif;
+}
+
+.rezept {
+    background-color: #F3ED88;
+    padding: 1.3em;
+    border-radius: 3em;
+    margin-top: 3em;
+    margin-bottom: 2em;
+    max-width: 55%;
+}
+
+.rezept h1, h2 {
+    margin-bottom: 0.21em;
+}
+
+h1 {
+    font-weight: 700;
+}
+
+h2 {
+    font-weight: 500;
+}
+
+cite {
+    font-weight: 300;
+}
+
+.rezept p, td {
+    margin-top: 0.34em;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+.rezeptKopf {
+    background-color: #EFD813;
+    padding: 1.3em;
+    border-radius: 3em;
+}
+
+.rezeptKopf h1 {
+    margin-left: 0;
+}
+
+.rezeptTextContent {
+    max-width: 3empx;
+}
+
+#favorisierenButton, #teilenButton, #bearbeitenButton, #loeschenButton, #entfernenButton {
+    border-radius: 10px;
+    width: 121px;
+    border-style: solid;
+    border-color: black;
+    background-color: #F19921;
+    font-family: Spectral, 'Times New Roman', Times, serif;
+    font-weight: 500;
+    color: black;
+    margin-bottom: 0.55em;
+    padding: 8px;
+    box-sizing: border-box;
+    font-size: 15px;
+    padding: 0.21em;
+    margin-top: 1em;
+    /* margin-left: 0.21em; */
+    margin-right: 0.21em;
+}
+
+#favorisierenButton:hover, #teilenButton:hover, #bearbeitenButton:hover, #loeschenButton:hover, #entfernenButton:hover {
+    background-color: black;
+    color: #EFD813;
+    border-color: #F19921;
+    transition: all 0.34s ease 0s;
+}
+
+.lebensmittelRechts {
+    padding-left: 2.1em;
+}

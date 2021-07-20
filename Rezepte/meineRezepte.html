@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Brew - Meine Rezepte</title>
+    <link rel="ICON" href="./bilder/agentBrew.ico" type="image/ico" />
+    <link rel="stylesheet" href="navigation.css">
+    <link rel="stylesheet" href="meineRezepte.css">
+    <link rel="stylesheet" href="rezept.css">
+    <script src="meineRezepte.js" defer></script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <div class="navigationsAbschnitt">
+        <div class="navigationsLogoKopf">
+            <img src="./bilder/agentBrew.png" alt="Agent Brew Logo, britischer Gentlemen Hut">
+            <p><span id="anmgemeldeterNutzerNameImLogo"></span> Agent Brew</p>
+        </div>
+
+        <!-- Seiten -->
+        <nav class="navigationsListenDiv">
+            <ul class="navigationsListe">
+                <li><a href="alleRezepte.html">Alle Rezepte</a></li>
+                <li><a href="meineFavoriten.html">Meine Favoriten</a></li>
+                <li><a class="current" href="meineRezepte.html">Meine Rezepte</a></li>
+                <li><a href="anmelden.html">Abmelden</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Neues Rezept Link -->
+    <div class="neuesRezeptLink">
+        <h1>Neues Rezept erstellen</h1>
+        <button type="button" name="neuesRezeptLinkButton" id="neuesRezeptLinkButton">+</button>
+    </div>
+
+    <!-- Meine Rezepte -->
+    <div class="meineRezepteSektion">
+        <h1>Meine Rezepte</h1>
+
+        <!-- Alle Rezepte -->
+        <div id="alleRezepteSektion">
+            
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Spectral:wght@300;500&display=swap');
+
+/* neuesRezept */
+
+.neuesRezeptDiv {
+    font-family: Spectral, 'Times New Roman', Times, serif;
+    width: 89%;
+    margin: 8.55em auto;
+    margin-top: 3em;
+    text-align: center;
+    border: 2px solid black;
+    background-color: rgb(241, 239, 239);
+    padding-top: 1em;
+    padding-bottom: 1em;
+    max-width: 37em;
+    border-radius: 3em;
+    padding-left: 0.34em;
+    padding-right: 0.34em;
+}
+
+#rezeptname {
+    width: 89%;
+}
+
+input, textarea {
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #EFD813;
+    background-color: #F3ED88;
+    font-family: Spectral, 'Times New Roman', Times, serif;
+    font-weight: 500;
+    color: #686868;
+    margin-bottom: 0.55em;
+    padding: 8px;
+    box-sizing: border-box;
+    font-size: 19px;
+}
+
+.menge {
+    margin-right: 3px;
+}
+
+.lebensmittel {
+    margin-left: 3px;
+}
+
+input:hover, textarea:hover {
+    background-color: #EFD813;
+    transition: all 0.34s ease 0s;
+    color: black;
+    transition: all 0.34s ease 0s;
+}
+
+button {
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #F19921;
+    background-color: #F19921;
+    font-family: Spectral, 'Times New Roman', Times, serif;
+    font-weight: 500;
+    color: #F3ED88;
+    margin-bottom: 0.55em;
+    padding: 8px;
+    box-sizing: border-box;
+    font-size: 19px;
+}
+
+button:hover {
+    background-color: black;
+    color: #EFD813;
+    border-color: #F19921;
+    transition: all 0.34s ease 0s;
+}
+
+button:focus, input:focus, textarea:focus {
+    outline-offset: 0;
+    outline: none !important;
+}
+
+#weitereZutatButton, #weitererSchrittButton {
+    font-family: Spectral, 'Times New Roman', Times, serif;
+    font-size: 21px;
+    font-weight: 700;
+    padding-left: 0.55em;
+    padding-right: 0.55em;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-left: 0.55em;
+}
+#weitereZutatButton {
+    margin-bottom: 0.21em;
+    margin-top: 2em;
+}
+
+#weitereZutatDiv, .weitererSchrittDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.34em;
+}
+
+h1 {
+    font-size: 25px;
+    font-weight: 400;
+    margin-bottom: 0.34em;
+}
+
+h3 {
+    font-weight: 500;
+    font-size: 21px;
+    margin-bottom: 0.21em;
+    margin-top: 2em;
+}
+
+textarea {
+    max-width: 21em;
+    min-width: 21em;
+    font-size: 15px;
+}
+
+.zutat input {
+    display: inline;
+}
