@@ -3,13 +3,13 @@ import * as Url from "url";
 import * as Mongo from "mongodb";
 
 export namespace Modulprüfung {
-    
+
     export interface Nutzer {
         _id: string;
         nutzername: string;
         passwort: string;
     }
-    
+
     export interface ServerAnmeldeAntwort {
         anmeldenErfolgreich: string;
         registrierenErfolgreich: string;
@@ -21,7 +21,7 @@ export namespace Modulprüfung {
         registrierenErfolgreich: "Erfolgreich registriert :)",
         nutzerNameSchonVergeben: "Nutzername leider schon vergeben :/"
     };
-    
+
     export interface Rezept {
         rezeptname: string;
         nutzername: string;
@@ -31,17 +31,17 @@ export namespace Modulprüfung {
         teilen: boolean;
         nutzernameDerFavorisiert: string;
     }
-    
+
     let nutzer: Mongo.Collection;
     let alleRezepte: Mongo.Collection;
     let favoritenRezepte: Mongo.Collection;
-    
+
     //let dbURL: string = "mongodb://localhost:27017";
     let dbURL: string = "mongodb+srv://dbAgentD:jYVoQLJzyUpz2888@agent-ds-mi7.7o8ku.mongodb.net/Rezepte?retryWrites=true&w=majority";
-    
+
     startServer();
     connectToDB();
-    
+
     function startServer(): void {
         let port: number = Number(process.env.PORT);
         if (!port)
@@ -53,7 +53,7 @@ export namespace Modulprüfung {
         server.addListener("listening", handleListen);
         server.listen(port);
     }
-    
+
     async function connectToDB(): Promise<void> {
         let options: Mongo.MongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
         let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(dbURL, options);
@@ -79,7 +79,7 @@ export namespace Modulprüfung {
         if (url.pathname == "/bekommeNutzerNameUndPw") {
             _response.setHeader("content-type", "text/html; charset=utf-8");
             _response.setHeader("Access-Control-Allow-Origin", "*");
-            
+
             let jsonString: string = JSON.stringify(url.query);
             _response.write(jsonString);
 
@@ -106,25 +106,21 @@ export namespace Modulprüfung {
             for (let i: number = 0; i < nutzerArray.length; i++) {
                 if (nutzername == nutzerArray[i].nutzername) {
                     nutzerNameVorhanden = true;
-                    
+
                     if (passwort == nutzerArray[i].passwort) {
                         nutzerPasswort = true;
-                    }   
-                } 
+                    }
+                }
             }
 
             // Nutzername vorhande, Passwort falsch --> neuer Nutzer kann sich nicht unter eingegebenem Namen registrieren
             if (nutzerNameVorhanden == true && nutzerPasswort == false) {
-                _response.setHeader("content-type", "text/html; charset=utf-8");
-                _response.setHeader("Access-Control-Allow-Origin", "*");
                 _response.write(serverAnmeldeAntwort001.nutzerNameSchonVergeben);
             }
 
             // Nutzername nicht vorhanden --> neuer Nutzer kann sich unter eingegebenem Namen registrieren
             else if (nutzerNameVorhanden == false && nutzerPasswort == false) {
                 nutzer.insertOne(url.query);
-                _response.setHeader("content-type", "text/html; charset=utf-8");
-                _response.setHeader("Access-Control-Allow-Origin", "*");
                 _response.write(serverAnmeldeAntwort001.registrierenErfolgreich);
                 console.log("ServerResponsNAME: " + nutzername);
             }
@@ -132,7 +128,7 @@ export namespace Modulprüfung {
             // Nutzername und Passwort stimmen überein --> Nutzer kann sich anmelden
             if (nutzerPasswort == true && nutzerNameVorhanden == true) {
                 _response.write(serverAnmeldeAntwort001.anmeldenErfolgreich);
-            }            
+            }
 
             console.log("Ganzer Query?", url.query);
         }
@@ -140,7 +136,7 @@ export namespace Modulprüfung {
         if (url.pathname == "/erstelleRezept") {
             let nutzername: string = <string>url.query["nutzername"];
             console.log("aktueller Nutzername: " + nutzername);
-            
+
             /*
             async function mitDBnutzerNameRezepteCollectionVerbinden(_url: string): Promise<void> {
                 let options: Mongo.MongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
@@ -161,26 +157,27 @@ export namespace Modulprüfung {
 
         // Alle Rezepte aus DB Rezepte und Collection alleRezepte anzeigen
         if (url.pathname == "/alleRezepte") {
-            let cursor: Mongo.Cursor = alleRezepte.find();
-            let result: Rezept[] = await cursor.toArray();
-            
-            let jsonString: string = JSON.stringify(result);
-
             _response.setHeader("content-type", "text/html; charset=utf-8");
             _response.setHeader("Access-Control-Allow-Origin", "*");
+
+            let cursor: Mongo.Cursor = alleRezepte.find();
+            let result: Rezept[] = await cursor.toArray();
+
+            let jsonString: string = JSON.stringify(result);
+
             _response.write(jsonString);
 
             console.log("Rezepte: ", jsonString);
         }
 
         if (url.pathname == "/meineRezepte") {
+            _response.setHeader("content-type", "text/html; charset=utf-8");
+            _response.setHeader("Access-Control-Allow-Origin", "*");
+
             let cursor: Mongo.Cursor = alleRezepte.find();
             let result: Rezept[] = await cursor.toArray();
 
             let jsonString: string = JSON.stringify(result);
-
-            _response.setHeader("content-type", "text/html; charset=utf-8");
-            _response.setHeader("Access-Control-Allow-Origin", "*");
             _response.write(jsonString);
 
             console.log("meineRezepte: ", jsonString);
@@ -188,6 +185,9 @@ export namespace Modulprüfung {
         }
 
         if (url.pathname == "/loescheEinRezept") {
+            _response.setHeader("content-type", "text/html; charset=utf-8");
+            _response.setHeader("Access-Control-Allow-Origin", "*");
+
             let id: string = <string>url.query["id"];
             let rezeptId: Mongo.ObjectId = new Mongo.ObjectId(id);
             alleRezepte.deleteOne({ _id: rezeptId });
@@ -196,6 +196,9 @@ export namespace Modulprüfung {
         }
 
         if (url.pathname == "/favorisiereEinRezept") {
+            _response.setHeader("content-type", "text/html; charset=utf-8");
+            _response.setHeader("Access-Control-Allow-Origin", "*");
+
             let id: string = <string>url.query["id"];
             let nutzernameDerFavorisiert: string = <string>url.query["nutzernameDerFavorisiert"];
             let rezeptId: Mongo.ObjectId = new Mongo.ObjectId(id);
@@ -212,45 +215,51 @@ export namespace Modulprüfung {
             nutzerFavorisierenDBCollection(dbURL);
             */
 
-            let cursor: Mongo.Cursor = alleRezepte.find({"_id": rezeptId});
+            let cursor: Mongo.Cursor = alleRezepte.find({ "_id": rezeptId });
             let result: Rezept[] = await cursor.toArray();
             let favSuch: Rezept;
 
-            favSuch = await favoritenRezepte.findOne({"rezeptname": <string>result[0].rezeptname, 
-            "nutzername": <string>result[0].nutzername,
-            "nutzernameDerFavorisiert": nutzernameDerFavorisiert,
-            "menge": <string[]>result[0].menge,
-            "lebensmittel": <string[]>result[0].lebensmittel,
-            "zubereitung": <string>result[0].zubereitung
+            favSuch = await favoritenRezepte.findOne({
+                "rezeptname": <string>result[0].rezeptname,
+                "nutzername": <string>result[0].nutzername,
+                "nutzernameDerFavorisiert": nutzernameDerFavorisiert,
+                "menge": <string[]>result[0].menge,
+                "lebensmittel": <string[]>result[0].lebensmittel,
+                "zubereitung": <string>result[0].zubereitung
             });
 
             if (favSuch == undefined) {
-                favoritenRezepte.insertOne({"rezeptname": <string>result[0].rezeptname, 
-                                            "nutzername": <string>result[0].nutzername,
-                                            "nutzernameDerFavorisiert": nutzernameDerFavorisiert,
-                                            "menge": <string[]>result[0].menge,
-                                            "lebensmittel": <string[]>result[0].lebensmittel,
-                                            "zubereitung": <string>result[0].zubereitung
+                favoritenRezepte.insertOne({
+                    "rezeptname": <string>result[0].rezeptname,
+                    "nutzername": <string>result[0].nutzername,
+                    "nutzernameDerFavorisiert": nutzernameDerFavorisiert,
+                    "menge": <string[]>result[0].menge,
+                    "lebensmittel": <string[]>result[0].lebensmittel,
+                    "zubereitung": <string>result[0].zubereitung
                 });
             }
         }
 
         if (url.pathname == "/meineFavoriten") {
+            _response.setHeader("content-type", "text/html; charset=utf-8");
+            _response.setHeader("Access-Control-Allow-Origin", "*");
+
             let cursor: Mongo.Cursor = favoritenRezepte.find();
             let result: Rezept[] = await cursor.toArray();
             let jsonString: string = JSON.stringify(result);
 
-            _response.setHeader("content-type", "text/html; charset=utf-8");
-            _response.setHeader("Access-Control-Allow-Origin", "*");
             _response.write(jsonString);
         }
 
         if (url.pathname == "/entferneEinFavorit") {
+            _response.setHeader("content-type", "text/html; charset=utf-8");
+            _response.setHeader("Access-Control-Allow-Origin", "*");
+            
             let id: string = <string>url.query["id"];
             let rezeptId: Mongo.ObjectId = new Mongo.ObjectId(id);
             favoritenRezepte.deleteOne({ _id: rezeptId });
         }
-        
+
         _response.end();
     }
 }

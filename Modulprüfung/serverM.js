@@ -74,15 +74,11 @@ var Modulprüfung;
             }
             // Nutzername vorhande, Passwort falsch --> neuer Nutzer kann sich nicht unter eingegebenem Namen registrieren
             if (nutzerNameVorhanden == true && nutzerPasswort == false) {
-                _response.setHeader("content-type", "text/html; charset=utf-8");
-                _response.setHeader("Access-Control-Allow-Origin", "*");
                 _response.write(serverAnmeldeAntwort001.nutzerNameSchonVergeben);
             }
             // Nutzername nicht vorhanden --> neuer Nutzer kann sich unter eingegebenem Namen registrieren
             else if (nutzerNameVorhanden == false && nutzerPasswort == false) {
                 nutzer.insertOne(url.query);
-                _response.setHeader("content-type", "text/html; charset=utf-8");
-                _response.setHeader("Access-Control-Allow-Origin", "*");
                 _response.write(serverAnmeldeAntwort001.registrierenErfolgreich);
                 console.log("ServerResponsNAME: " + nutzername);
             }
@@ -112,31 +108,35 @@ var Modulprüfung;
         }
         // Alle Rezepte aus DB Rezepte und Collection alleRezepte anzeigen
         if (url.pathname == "/alleRezepte") {
+            _response.setHeader("content-type", "text/html; charset=utf-8");
+            _response.setHeader("Access-Control-Allow-Origin", "*");
             let cursor = alleRezepte.find();
             let result = await cursor.toArray();
             let jsonString = JSON.stringify(result);
-            _response.setHeader("content-type", "text/html; charset=utf-8");
-            _response.setHeader("Access-Control-Allow-Origin", "*");
             _response.write(jsonString);
             console.log("Rezepte: ", jsonString);
         }
         if (url.pathname == "/meineRezepte") {
+            _response.setHeader("content-type", "text/html; charset=utf-8");
+            _response.setHeader("Access-Control-Allow-Origin", "*");
             let cursor = alleRezepte.find();
             let result = await cursor.toArray();
             let jsonString = JSON.stringify(result);
-            _response.setHeader("content-type", "text/html; charset=utf-8");
-            _response.setHeader("Access-Control-Allow-Origin", "*");
             _response.write(jsonString);
             console.log("meineRezepte: ", jsonString);
             console.log("Rezepte von" + alleRezepte);
         }
         if (url.pathname == "/loescheEinRezept") {
+            _response.setHeader("content-type", "text/html; charset=utf-8");
+            _response.setHeader("Access-Control-Allow-Origin", "*");
             let id = url.query["id"];
             let rezeptId = new Mongo.ObjectId(id);
             alleRezepte.deleteOne({ _id: rezeptId });
             console.log("Entfernen gedrückt!");
         }
         if (url.pathname == "/favorisiereEinRezept") {
+            _response.setHeader("content-type", "text/html; charset=utf-8");
+            _response.setHeader("Access-Control-Allow-Origin", "*");
             let id = url.query["id"];
             let nutzernameDerFavorisiert = url.query["nutzernameDerFavorisiert"];
             let rezeptId = new Mongo.ObjectId(id);
@@ -154,28 +154,36 @@ var Modulprüfung;
             let cursor = alleRezepte.find({ "_id": rezeptId });
             let result = await cursor.toArray();
             let favSuch;
-            favSuch = await favoritenRezepte.findOne({ "rezeptname": result[0].rezeptname,
-                "nutzername": result[0].nutzername, "nutzernameDerFavorisiert": nutzernameDerFavorisiert, "menge": result[0].menge,
+            favSuch = await favoritenRezepte.findOne({
+                "rezeptname": result[0].rezeptname,
+                "nutzername": result[0].nutzername,
+                "nutzernameDerFavorisiert": nutzernameDerFavorisiert,
+                "menge": result[0].menge,
                 "lebensmittel": result[0].lebensmittel,
                 "zubereitung": result[0].zubereitung
             });
             if (favSuch == undefined) {
-                favoritenRezepte.insertOne({ "rezeptname": result[0].rezeptname,
-                    "nutzername": result[0].nutzername, "nutzernameDerFavorisiert": nutzernameDerFavorisiert, "menge": result[0].menge,
+                favoritenRezepte.insertOne({
+                    "rezeptname": result[0].rezeptname,
+                    "nutzername": result[0].nutzername,
+                    "nutzernameDerFavorisiert": nutzernameDerFavorisiert,
+                    "menge": result[0].menge,
                     "lebensmittel": result[0].lebensmittel,
                     "zubereitung": result[0].zubereitung
                 });
             }
         }
         if (url.pathname == "/meineFavoriten") {
+            _response.setHeader("content-type", "text/html; charset=utf-8");
+            _response.setHeader("Access-Control-Allow-Origin", "*");
             let cursor = favoritenRezepte.find();
             let result = await cursor.toArray();
             let jsonString = JSON.stringify(result);
-            _response.setHeader("content-type", "text/html; charset=utf-8");
-            _response.setHeader("Access-Control-Allow-Origin", "*");
             _response.write(jsonString);
         }
         if (url.pathname == "/entferneEinFavorit") {
+            _response.setHeader("content-type", "text/html; charset=utf-8");
+            _response.setHeader("Access-Control-Allow-Origin", "*");
             let id = url.query["id"];
             let rezeptId = new Mongo.ObjectId(id);
             favoritenRezepte.deleteOne({ _id: rezeptId });
