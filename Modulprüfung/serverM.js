@@ -46,9 +46,9 @@ var Modulprüfung;
         console.log(url);
         // _response.setHeader("Access-Control-Allow-Origin", "*");
         if (url.pathname == "/bekommeNutzerNameUndPw") {
-            let jsonString = JSON.stringify(url.query);
             _response.setHeader("content-type", "text/html; charset=utf-8");
             _response.setHeader("Access-Control-Allow-Origin", "*");
+            let jsonString = JSON.stringify(url.query);
             _response.write(jsonString);
             console.log(jsonString);
         }
