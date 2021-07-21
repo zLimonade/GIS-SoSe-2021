@@ -1,6 +1,6 @@
 "use strict";
-var Modulprüfung;
-(function (Modulprüfung) {
+var Rezepte;
+(function (Rezepte) {
     zeigeAnmgemeldeterNutzerNameImLogo();
     let mengeLaenge;
     function zeigeAnmgemeldeterNutzerNameImLogo() {
@@ -32,7 +32,7 @@ var Modulprüfung;
             console.log("Ein Rezept: " + rezept.rezeptname);
         }
     }
-    Modulprüfung.meineRezepteAnzeigen = meineRezepteAnzeigen;
+    Rezepte.meineRezepteAnzeigen = meineRezepteAnzeigen;
     function erstelleMeineRezeptDiv(_rezept) {
         let rezeptDiv = document.createElement("div");
         rezeptDiv.className = "rezept";
@@ -119,7 +119,7 @@ var Modulprüfung;
         rezeptDiv.appendChild(rezeptTextContent);
         return rezeptDiv;
     }
-    Modulprüfung.erstelleMeineRezeptDiv = erstelleMeineRezeptDiv;
+    Rezepte.erstelleMeineRezeptDiv = erstelleMeineRezeptDiv;
     async function löscheEinRezept(_event) {
         let drückeEntferneEineRezeptBTN = _event.target;
         let zuEntfernendeID = drückeEntferneEineRezeptBTN.getAttribute("_id");
@@ -130,5 +130,5 @@ var Modulprüfung;
         await fetch(url);
         meineRezepteAnzeigen();
     }
-})(Modulprüfung || (Modulprüfung = {}));
+})(Rezepte || (Rezepte = {}));
 //# sourceMappingURL=meineRezepte.js.map

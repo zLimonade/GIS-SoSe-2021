@@ -1,4 +1,4 @@
-namespace Modulprüfung {
+namespace Rezepte {
     export interface Rezept {
         _id: string;
         rezeptname: string;

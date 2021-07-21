@@ -1,6 +1,6 @@
 "use strict";
-var Modulprüfung;
-(function (Modulprüfung) {
+var Rezepte;
+(function (Rezepte) {
     let nutzer1 = { nutzername: "alf", passwort: "123456" };
     /*
     let rezept1: Rezept = {
@@ -16,6 +16,6 @@ var Modulprüfung;
     };
     */
     // export let rezept1JSON: string = JSON.stringify(rezept1);
-    Modulprüfung.nutzer1JSON = JSON.stringify(nutzer1);
-})(Modulprüfung || (Modulprüfung = {}));
+    Rezepte.nutzer1JSON = JSON.stringify(nutzer1);
+})(Rezepte || (Rezepte = {}));
 //# sourceMappingURL=data.js.map

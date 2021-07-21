@@ -1,6 +1,6 @@
 "use strict";
-var Modulprüfung;
-(function (Modulprüfung) {
+var Rezepte;
+(function (Rezepte) {
     zeigeAnmgemeldeterNutzerNameImLogo();
     function zeigeAnmgemeldeterNutzerNameImLogo() {
         let anmgemeldeterNutzerNameImLogo = document.getElementById("anmgemeldeterNutzerNameImLogo");
@@ -52,5 +52,5 @@ var Modulprüfung;
         let rezepte = await response.json();
         console.log(rezepte);
     }
-})(Modulprüfung || (Modulprüfung = {}));
+})(Rezepte || (Rezepte = {}));
 //# sourceMappingURL=neuesRezept.js.map

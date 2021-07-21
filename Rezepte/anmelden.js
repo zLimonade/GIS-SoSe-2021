@@ -1,9 +1,9 @@
 "use strict";
-var Modulprüfung;
-(function (Modulprüfung) {
+var Rezepte;
+(function (Rezepte) {
     let serverAntwortAnmeldungText = document.getElementById("serverAntwortAnmeldungH3");
     serverAntwortAnmeldungText.style.display = "none";
-    console.log("angemeldeter name " + Modulprüfung.angemeldeterNutzerName);
+    console.log("angemeldeter name " + Rezepte.angemeldeterNutzerName);
     let serverAnmeldeAntwort001 = {
         anmeldenErfolgreich: "Erfolgreich angemeldet :)",
         registrierenErfolgreich: "Erfolgreich registriert :)",
@@ -23,9 +23,10 @@ var Modulprüfung;
         let serverAntwort = await response.json();
         console.log("bekommeNutzerNameUndPw ", serverAntwort);
         console.log("bekommeNutzerNameUndPw ", serverAntwort.nutzername);
-        Modulprüfung.angemeldeterNutzerName = serverAntwort.nutzername;
-        console.log("nutzerName " + Modulprüfung.angemeldeterNutzerName);
+        Rezepte.angemeldeterNutzerName = serverAntwort.nutzername;
+        console.log("nutzerName " + Rezepte.angemeldeterNutzerName);
         // Browser-Cache für Nutzername
+        sessionStorage.removeItem("nutzername");
         sessionStorage.setItem("nutzername", serverAntwort.nutzername);
         sessionStorage.setItem("url", url.toString());
     }
@@ -57,5 +58,5 @@ var Modulprüfung;
             serverAntwortAnmeldungText.innerText = serverAntwort;
         }
     }
-})(Modulprüfung || (Modulprüfung = {}));
+})(Rezepte || (Rezepte = {}));
 //# sourceMappingURL=anmelden.js.map

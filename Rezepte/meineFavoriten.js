@@ -1,6 +1,6 @@
 "use strict";
-var Modulprüfung;
-(function (Modulprüfung) {
+var Rezepte;
+(function (Rezepte) {
     zeigeAnmgemeldeterNutzerNameImLogo();
     function zeigeAnmgemeldeterNutzerNameImLogo() {
         let anmgemeldeterNutzerNameImLogo = document.getElementById("anmgemeldeterNutzerNameImLogo");
@@ -25,7 +25,7 @@ var Modulprüfung;
             console.log("Ein Rezept: " + rezept.rezeptname);
         }
     }
-    Modulprüfung.meineFavorisiertenRezepteAnzeigen = meineFavorisiertenRezepteAnzeigen;
+    Rezepte.meineFavorisiertenRezepteAnzeigen = meineFavorisiertenRezepteAnzeigen;
     function meineFavoritenAnzeigen(_rezept) {
         let rezeptDiv = document.createElement("div");
         rezeptDiv.className = "rezept";
@@ -90,7 +90,7 @@ var Modulprüfung;
         rezeptDiv.appendChild(rezeptTextContent);
         return rezeptDiv;
     }
-    Modulprüfung.meineFavoritenAnzeigen = meineFavoritenAnzeigen;
+    Rezepte.meineFavoritenAnzeigen = meineFavoritenAnzeigen;
     async function entferneEinFavorit(_event) {
         let drückeEntferneEineRezeptBTN = _event.target;
         let zuEntfernendeID = drückeEntferneEineRezeptBTN.getAttribute("_id");
@@ -100,5 +100,5 @@ var Modulprüfung;
         await fetch(url);
         meineFavorisiertenRezepteAnzeigen();
     }
-})(Modulprüfung || (Modulprüfung = {}));
+})(Rezepte || (Rezepte = {}));
 //# sourceMappingURL=meineFavoriten.js.map

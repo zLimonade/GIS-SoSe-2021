@@ -1,4 +1,4 @@
-namespace Modulprüfung {
+namespace Rezepte {
 
     zeigeAnmgemeldeterNutzerNameImLogo();
 

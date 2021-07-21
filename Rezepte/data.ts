@@ -1,4 +1,4 @@
-namespace Modulprüfung {
+namespace Rezepte {
 
     let nutzer1: Nutzer = { nutzername: "alf", passwort: "123456" };
 

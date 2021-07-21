@@ -1,4 +1,4 @@
-namespace Modulprüfung {
+namespace Rezepte {
     
     let serverAntwortAnmeldungText: HTMLHeadingElement = <HTMLHeadingElement>document.getElementById("serverAntwortAnmeldungH3");
     serverAntwortAnmeldungText.style.display = "none";
@@ -40,6 +40,7 @@ namespace Modulprüfung {
         console.log("nutzerName " + angemeldeterNutzerName);
 
         // Browser-Cache für Nutzername
+        sessionStorage.removeItem("nutzername");
         sessionStorage.setItem("nutzername", serverAntwort.nutzername);
         sessionStorage.setItem("url", url.toString());
     }

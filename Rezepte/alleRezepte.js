@@ -1,6 +1,6 @@
 "use strict";
-var Modulprüfung;
-(function (Modulprüfung) {
+var Rezepte;
+(function (Rezepte) {
     alleRezepteAnzeigen();
     zeigeAnmgemeldeterNutzerNameImLogo();
     function zeigeAnmgemeldeterNutzerNameImLogo() {
@@ -23,7 +23,7 @@ var Modulprüfung;
             console.log("Ein Rezept: " + rezept.rezeptname);
         }
     }
-    Modulprüfung.alleRezepteAnzeigen = alleRezepteAnzeigen;
+    Rezepte.alleRezepteAnzeigen = alleRezepteAnzeigen;
     function erstelleRezeptDiv(_rezept) {
         let rezeptDiv = document.createElement("div");
         rezeptDiv.className = "rezept";
@@ -102,7 +102,7 @@ var Modulprüfung;
         rezeptDiv.appendChild(rezeptTextContent);
         return rezeptDiv;
     }
-    Modulprüfung.erstelleRezeptDiv = erstelleRezeptDiv;
+    Rezepte.erstelleRezeptDiv = erstelleRezeptDiv;
     async function favorisiereEinRezept(_event) {
         let drückeEntferneEineRezeptBTN = _event.target;
         let zuEntfernendeID = drückeEntferneEineRezeptBTN.getAttribute("_id");
@@ -111,7 +111,7 @@ var Modulprüfung;
         //let url: string = "http://localhost:8100";
         url = url + "/favorisiereEinRezept?" + "id=" + zuEntfernendeID + "&" + "nutzernameDerFavorisiert=" + nutzernameDerFavorisiert;
         await fetch(url);
-        Modulprüfung.meineFavorisiertenRezepteAnzeigen();
+        Rezepte.meineFavorisiertenRezepteAnzeigen();
     }
-})(Modulprüfung || (Modulprüfung = {}));
+})(Rezepte || (Rezepte = {}));
 //# sourceMappingURL=alleRezepte.js.map
